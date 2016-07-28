@@ -78,12 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <EntityDeploy Include="Prod.edmx">
+    <EntityDeploy Include="ProductModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Prod.Designer.cs</LastGenOutput>
+      <LastGenOutput>ProductModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Prod.edmx.diagram">
-      <DependentUpon>Prod.edmx</DependentUpon>
+    <Content Include="ProductModel.edmx.diagram">
+      <DependentUpon>ProductModel.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -93,36 +93,36 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Prod.Context.tt">
+    <Content Include="ProductModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Prod.edmx</DependentUpon>
-      <LastGenOutput>Prod.Context.cs</LastGenOutput>
+      <DependentUpon>ProductModel.edmx</DependentUpon>
+      <LastGenOutput>ProductModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Prod.tt">
+    <Content Include="ProductModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Prod.edmx</DependentUpon>
-      <LastGenOutput>Prod.cs</LastGenOutput>
+      <DependentUpon>ProductModel.edmx</DependentUpon>
+      <LastGenOutput>ProductModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Prod.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Prod.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Prod.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Prod.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Prod.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Prod.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>Prod.tt</DependentUpon>
+      <DependentUpon>ProductModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

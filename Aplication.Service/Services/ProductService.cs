@@ -9,7 +9,7 @@ namespace Aplication.Service.Services
 {
     public class ProductService : IProductService
     {
-        private ProductDBEntities db = new ProductDBEntities();
+        private ProductEntities db = new ProductEntities();
 
         public Product GetProduct(int id)
         {
@@ -38,13 +38,27 @@ namespace Aplication.Service.Services
         {
             try
             {
-                
+                db.Entry(product).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
             }
-            throw new NotImplementedException();
         }
         public bool DeleteProduct(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var product = db.Product.Where(item => item.Id == id).FirstOrDefault();
+                if (product == null)
+                    return false;
+                db.Entry(product).State = System.Data.Entity.EntityState.Deleted;
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
+            }
         }
 
     }

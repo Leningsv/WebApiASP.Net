@@ -42,5 +42,12 @@ namespace Aplication.WebApi.Controllers
                 return Ok();
             return BadRequest();
         }
+        public IHttpActionResult Delete(int id)
+        {
+            var isDeleted = productService.DeleteProduct(id);
+            if (isDeleted == true)
+                return Ok();
+            return BadRequest();
+        }
     }
 }

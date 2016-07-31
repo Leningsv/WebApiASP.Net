@@ -9,20 +9,22 @@ using System.Web.Http;
 
 namespace Aplication.WebApi.Controllers
 {
-    public class ProductController : ApiController
+    public class ProductV1Controller : ApiController
     {
         private ProductService productService = new ProductService();
         [HttpGet]
-        [ActionName("NameProducts")]
+        [Route("p1/getProducts")]
         public IEnumerable<Product> GetStoreProduts()
         {
             return productService.GetProducts();
         }
         [HttpGet]
+        [Route("p1/{id}/getProduct")]
+        // El id tienen que tener exactamente el mismo nombre que se pasa al metodo
         public IHttpActionResult GetProdutc(int id)
         {
             var product = productService.GetProduct(id);
-            if(product == null)
+            if (product == null)
             {
                 return NotFound();
             }
@@ -34,7 +36,7 @@ namespace Aplication.WebApi.Controllers
         [HttpPost]
         public IHttpActionResult Post(Product product)
         {
-            var isSave=productService.SaveProduct(product);
+            var isSave = productService.SaveProduct(product);
             if (isSave == true)
                 return Ok();
             return BadRequest();
@@ -57,3 +59,4 @@ namespace Aplication.WebApi.Controllers
         }
     }
 }
+
